@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<script>
+    $(document).ready(function(){
+      $('#id_file').attr("multiple","true");
+  
+    })
+   </script>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
+
+  <p><a href="{% url 'home' %}">Return to home</a></p>
+{% endblock %}
